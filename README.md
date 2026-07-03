@@ -28,17 +28,17 @@ numerical analysis.
 
 The governing equations are
 
-\[
+$$
 \begin{aligned}
 \frac{dx}{dt} &= \sigma (y-x),\\
 \frac{dy}{dt} &= x(\rho-z)-y,\\
 \frac{dz}{dt} &= xy-\beta z.
 \end{aligned}
-\]
+$$
 
-The Lorenz equations are solved numerically using the classical fourth-order Runge–Kutta (RK4) method.
-The RK4 implementation is provided in the reusable module `rk4_solver.py`, which can
-be used for solving other systems of ordinary differential equations.
+The Lorenz equations are integrated numerically using the classical fourth-order Runge–Kutta (RK4) method.
+
+The reusable RK4 implementation is provided in `rk4_solver.py`, making the solver applicable to a broad class of ordinary differential equation (ODE) systems.
 
 ---
 
@@ -101,9 +101,9 @@ Initial condition
 
 Integration interval
 
-\[
+$$
 0 \le t \le 40
-\]
+$$
 
 Step size
 
@@ -129,7 +129,7 @@ cd lorenz-rk4
 ```
 
 
-Install the required packages.
+Install the required python packages.
 
 
 ```bash
@@ -146,6 +146,8 @@ Run the example script:
 python examples/lorenz_example.py
 ``` 
 
+The program:
+
 - solves the Lorenz system,
 - prints a summary of the simulation,
 - generates all figures,
@@ -155,34 +157,33 @@ python examples/lorenz_example.py
 
 ## Generated Figures
 
-The simulation produces the following figures:
+The following figures are automatically generated:
 
-- Time evolution of \(x(t)\)
-- Time evolution of \(y(t)\)
-- Time evolution of \(z(t)\)
-- Projection onto the \(x-y\) plane
-- Projection onto the \(x-z\) plane
-- Projection onto the \(y-z\) plane
+- Time evolution of x(t), y(t), and z(t)
+- Phase-space projections (x–y, x–z, y–z)
 - Three-dimensional Lorenz attractor
 
 ---
 
 ## Results
 
-
 ### Time Evolution
 
-| x(t) | y(t) | z(t) |
-|:----:|:----:|:----:|
-| <img src="figures/time_evolution_x.png" width="260"> | <img src="figures/time_evolution_y.png" width="260"> | <img src="figures/time_evolution_z.png" width="260"> |
+<p align="center">
+  <img src="figures/time_evolution_x.png" width="260">
+  <img src="figures/time_evolution_y.png" width="260">
+  <img src="figures/time_evolution_z.png" width="260">
+</p>
 
 ---
 
 ### Phase-space Projections
 
-| x-y | x-z | y-z |
-|:---:|:---:|:---:|
-| <img src="figures/projection_xy.png" width="260"> | <img src="figures/projection_xz.png" width="260"> | <img src="figures/projection_yz.png" width="260"> |
+<p align="center">
+  <img src="figures/projection_xy.png" width="260">
+  <img src="figures/projection_xz.png" width="260">
+  <img src="figures/projection_yz.png" width="260">
+</p>
 
 ---
 
@@ -230,18 +231,18 @@ while the Lorenz system is defined in
 
 For each time step,
 
-\[y_{n+1}=y_n+\frac{1}{6}(k_1+2k_2+2k_3+k_4),\]
+$$y_{n+1}=y_n+\frac{1}{6}(k_1+2k_2+2k_3+k_4),$$
 
 where
 
-\[
+$$
 \begin{aligned}
 k_1 &= hf(t_n,y_n),\\
 k_2 &= hf\left(t_n+\frac{h}{2},y_n+\frac{k_1}{2}\right),\\
 k_3 &= hf\left(t_n+\frac{h}{2},y_n+\frac{k_2}{2}\right),\\
 k_4 &= hf(t_n+h,y_n+k_3).
 \end{aligned}
-\]
+$$
 
 ---
 
@@ -280,7 +281,7 @@ z(T) = 37.572953
 
 ## Future Improvements
 
-Possible future extensions include
+Possible future extensions include:
 
 - adaptive Runge–Kutta methods,
 - comparison with Euler and RK2 methods,
@@ -309,4 +310,4 @@ This project is released under the MIT License.
 
 GitHub: <https://github.com/maryam-asghari>
 
-June 2026
+*June 2026*
